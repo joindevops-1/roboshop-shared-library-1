@@ -4,7 +4,7 @@ def decidePipleine(Map configMap){
     application = configMap.get("application")
     //# here we are getting nodeJSVM
     switch(application) {
-        case 'nodeJSVM':
+        case 'nodejsVM':
             echo "application is Node JS and VM based"
             nodejsVM(configMap)
             break
