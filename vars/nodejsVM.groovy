@@ -10,6 +10,7 @@ def call(Map configMap){
         }
         parameters {
             booleanParam(name: 'Deploy', defaultValue: false, description: 'Toggle this value')
+            
             booleanParam(name: 'Destroy', defaultValue: false, description: 'Toggle this value')
         }
         
@@ -76,12 +77,19 @@ def call(Map configMap){
             // This job will wait until downstrem job is over
             // by default when a non-master branch CI is done, we can go for DEV development
             stage('Deploy') {
+                when{
+                    expression{
+                        params.Deploy
+                    }
+                }
                 steps {
                     script{
                         echo "Deployment"
                         def params = [
                             string(name: 'version', value: "$packageVersion"),
-                            string(name: 'environment', value: "dev")
+                            string(name: 'environment', value: "dev"),
+                            booleanParam(name: 'Destroy', value: "${params.Destroy}")
+                            booleanParam(name: 'Deploy', value: "${params.Deploy}")
                         ]
                         build job: "../${component}-deploy", wait: true, parameters: params
                     }
