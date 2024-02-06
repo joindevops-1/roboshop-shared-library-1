@@ -91,6 +91,7 @@ def call(Map configMap){
                             string(name: 'environment', value: "dev"),
                             booleanParam(name: 'Destroy', value: "${params.Destroy}"),
                             booleanParam(name: 'Deploy', value: "${params.Deploy}")
+                            
                         ]
                         build job: "../${component}-deploy", wait: true, parameters: params
                     }
