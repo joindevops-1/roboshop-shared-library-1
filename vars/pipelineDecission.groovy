@@ -8,6 +8,10 @@ def decidePipleine(Map configMap){
             echo "application is Node JS and VM based"
             nodejsVM(configMap)
             break
+        case 'staticVM':
+            echo "application is Node JS and VM based"
+            staticVM(configMap)
+            break
         case 'nodejsEKS':
             echo "application is Node JS and VM based"
             nodeJSEKS(configMap)
@@ -18,6 +22,7 @@ def decidePipleine(Map configMap){
         case 'javaEKS':
             javaEKS(configMap)
             break
+            
         default:
             error "Un recognised application"
             break
