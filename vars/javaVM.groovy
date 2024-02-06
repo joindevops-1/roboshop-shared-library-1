@@ -73,9 +73,9 @@ def call(Map configMap){
                 }
             }
 
-            here I need to configure downstram job. I have to pass package version for deployment
-            This job will wait until downstrem job is over
-            by default when a non-master branch CI is done, we can go for DEV development
+            // here I need to configure downstram job. I have to pass package version for deployment
+            // This job will wait until downstrem job is over
+            // by default when a non-master branch CI is done, we can go for DEV development
             stage('Deploy') {
                 when{
                     expression{
