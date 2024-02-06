@@ -42,7 +42,8 @@ def call(Map configMap){
             }
             stage('Build') {
                 steps {
-                    sh 'ls -ltr'
+                    sh 'ls -ltr '
+                    sh 'ls -ltr target'
                     
                 }
             }
@@ -66,8 +67,8 @@ def call(Map configMap){
                         artifacts: [
                             [artifactId: "${component}",
                             classifier: '',
-                            file: "${component}.zip",
-                            type: 'zip']
+                            file: "target/${component}.jar",
+                            type: 'jar']
                         ]
                     )
                 }
