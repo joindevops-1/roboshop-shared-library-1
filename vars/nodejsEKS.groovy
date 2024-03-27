@@ -125,7 +125,7 @@ def call(Map configMap){
                 }
             }
         } */
-
+        }
         post{
             always{
                 echo 'cleaning up workspace'
