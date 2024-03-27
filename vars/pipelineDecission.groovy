@@ -14,7 +14,7 @@ def decidePipleine(Map configMap){
             break
         case 'nodejsEKS':
             echo "application is Node JS and VM based"
-            nodeJSEKS(configMap)
+            nodejsEKS(configMap)
             break
         case 'javaVM':
             javaVM(configMap)
